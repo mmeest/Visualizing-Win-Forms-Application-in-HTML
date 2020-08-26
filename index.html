@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .item1 { grid-area: ltext; }
+        .item2 { grid-area: input; }
+        .item3 { grid-area: optional; }
+        .item4 { grid-area: rtext; }
+        .item5 { grid-area: buttons; }
+
+        :root {
+            /* font-family: Arial, Helvetica, sans-serif; */
+            background-color: rgb(248, 240, 230);
+        }
+        
+        body {
+            align-content: center;
+        }
+        .border {
+            display: block;
+            margin: auto;
+            margin-top: 10%;
+            width: 1000px;
+            height: 400px;            
+            background-color: rgb(209, 195, 150);
+            font-size: large;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 7px;
+            box-shadow: 0 12px 18px 0 rgba(122, 88, 88, 1.5), 0 6px 20px 0 rgba(92, 88, 88, 0.678);
+        }
+
+        .input {
+            width: 30px;
+        }
+
+        .grid-container {
+        display: grid;
+        grid-template-columns: 20% 59% 20%;
+        grid-template-areas:
+            'ltext input rtext'
+            'ltext optional rtext'
+            'buttons buttons buttons';
+        grid-gap: 4px;
+        background-color: rgb(209, 195, 150);
+        padding: 5px;
+        border-radius: 7px;
+        }
+        .legend {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .grid-container > div {
+        text-align: center;
+        padding: 1px 0;
+        font-size: 30px;
+        }        
+        .item1{
+            display: flex;
+            flex-direction: column;
+            background-color: lightblue;
+        }
+        .text_title{
+            font-size: medium;
+            flex: 1;
+        }
+        .text_output{
+            flex-basis:auto;
+            margin: 5px;
+            flex: 20;
+            resize: none;
+        }
+        .item2{
+            font-size: 13px;
+            background-color: lightyellow;
+        }
+        .item3{
+            font-size: 13px;
+            background-color: lightyellow;
+        }
+        .item4{
+            display: flex;
+            flex-direction: column;
+            background-color: lightgreen;
+        }
+        .item5{
+            background-color: lightyellow;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="border">
+        <div style="text-align: center;">
+            KÜLGHARJA PROGRAMM
+        </div>
+        <div class="grid-container">
+            <div class="item1">
+                <label for="" class="text_title">Ketas</label><br>
+                <textarea class="text_output" name="" id="" cols="10" rows="10" wrap="hard"></textarea>
+            </div>
+
+            <fieldset class="item2">
+                <legend class="legend">Lähteandmed</legend>
+                <table width="100%">
+                    <tr>
+                        <td width="50%">
+                            <input name="number" class="input" id="input_A" min="100" max="1000" maxlength="4">
+                            <label>A: ketta/segm.läbimõõt (mm)</label>
+                        </td>
+                        <td width="50%">
+                            <input name="number" class="input" id="input_B" min="100" max="1000" maxlength="4">
+                            <label>B: auguridade arv</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            <fieldset style="background-color: lightblue;">
+                                <legend class="legend">Ketas</legend>
+                                <input name="number" class="input" id="input_C" min="100" max="1000" maxlength="4" placeholder="0">
+                                <label>C: kinnituspoltide arv</label>
+                            </fieldset>
+                        </td>
+                        <td rowspan="2" width="50%">
+                            <fieldset style="background-color: lightgreen;">
+                                <legend class="legend">Segment</legend>
+                                <input name="number" class="input" id="input_E" min="100" max="1000" maxlength="4">
+                                <label>E: segmendi algusnurk</label><br>
+                                <input name="number" class="input" id="input_F" min="100" max="1000" maxlength="4">
+                                <label>F: segmendi lõppnurk</label><br>
+                                <input name="number" class="input" id="input_G" min="100" max="1000" maxlength="4">
+                                <label>G: esimese poldi nurk</label><br>
+                                <input name="number" class="input" id="input_H" min="100" max="1000" maxlength="4">
+                                <label>H: teise poldi nurk</label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            <input name="number" class="input" id="input_D" min="100" max="1000" maxlength="4" placeholder="0">
+                            <label>D: poltide rea läbimõõt (mm)</label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset class="item3">
+                <legend class="legend">Valikulised muutujad</legend>
+                <input name="number" class="input" id="input_I" min="100" max="1000" maxlength="4" placeholder="40">
+                <label>I: augupaaride vahe (vaikimisi 40 mm)</label><br>
+                <input name="number" class="input" id="input_J" min="100" max="1000" maxlength="4" placeholder="60">
+                <label>J: ketta ja välimise aukude rea vahe (vaikimisi 60 mm)</label><br>
+                <input name="number" class="input" id="input_K" min="100" max="1000" maxlength="4" placeholder="40">
+                <label>K: puuritavate auguridade vahe (vaikimisi 40 mm)</label><br>
+                <input name="number" class="input" id="input_L" min="100" max="1000" maxlength="4" placeholder="30">
+                <label>L: augurea alguse kaugus kinnituspoldist (vaikimisi 30 mm)</label><br>
+                <input name="number" class="input" id="input_M" min="100" max="1000" maxlength="4" placeholder="64">
+                <label>M: poldirea kaugus sellest väiksemast augureast (vaikimisi 64 mm)</label><br>
+                <input name="number" class="input" id="input_N" min="100" max="1000" maxlength="4" placeholder="35">
+                <label>N: poldirea kaugus sellest suuremast augureast (vaikimisi 35 mm)</label><br>
+            </fieldset>
+
+            <div class="item4">
+                <label for="" class="text_title">Segment</label><br>
+                <textarea class="text_output" name="" id="" cols="10" rows="10" wrap="hard"></textarea>
+            </div>
+
+            <div class="item5">Nupud</div>
+        </div>
+    </div>
+</body>
+</html>
